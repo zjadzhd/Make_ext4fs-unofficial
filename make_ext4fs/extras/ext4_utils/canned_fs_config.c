@@ -91,18 +91,18 @@ void canned_fs_config(const char* path, int dir,
 		struct stat buf;
 		int result;
 		result = stat(path, &buf);
-		*uid = 0;
-		*gid = 0;
+		*uid = "0";
+		*gid = "0";
 		if(S_IFDIR & buf.st_mode){
 			fprintf(stderr, "folder: %s 0755\n", path);
-			*mode = 0755;
+			*mode = "0755";
 			/*Auto fix folder*/
 		}else if(S_IFREG & buf.st_mode){
 			fprintf(stderr, "file: %s 0644\n", path);
-			*mode = 0644;
+			*mode = "0644";
 			/*Auto fix file*/
 		}
-	*capabilities = 0;
+	*capabilities = "0";
 	} else {
 	*uid = p->uid;
 	*gid = p->gid;
