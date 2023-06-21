@@ -95,11 +95,11 @@ void canned_fs_config(const char* path, int dir,
 		*gid = "0";
 		if(S_IFDIR & buf.st_mode){
 			fprintf(stderr, "folder: %s 0755\n", path);
-			*mode = "0755";
+			unsigned* mode = "0755";
 			/*Auto fix folder*/
 		}else if(S_IFREG & buf.st_mode){
 			fprintf(stderr, "file: %s 0644\n", path);
-			*mode = "0644";
+			unsigned* mode = "0644";
 			/*Auto fix file*/
 		}
 	*capabilities = "0";
